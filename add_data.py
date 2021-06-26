@@ -15,7 +15,7 @@ def DBConnect(dbName=None):
     -------
 
     """
-    conn = mysql.connect(host='localhost', user='root', password=os.getenv('mysqlPass'),
+    conn = mysql.connect(host='localhost', user='root', password= 'Wolad1te',
                          database=dbName, buffered=True)
     cur = conn.cursor()
     return conn, cur
@@ -211,6 +211,6 @@ if __name__ == "__main__":
     emojiDB(dbName='tweets')
     createTables(dbName='tweets')
 
-    df = pd.read_csv('fintech.csv')
+    df = pd.read_csv('cleaned_fintech_data (1).csv').head(100)
 
     insert_to_tweet_table(dbName='tweets', df=df, table_name='TweetInformation')
